@@ -1,2 +1,3 @@
 #自己KanAuto使用的脚本
-######目前KanAuto和Github的编码有冲突，需要用Notepad++转换成ASNI来保证KanAuto上中文正常，使用UTF-8格式查看和编辑lua
+######~~目前KanAuto和Github的编码有冲突~~，需要用Notepad++转换成ASNI来保证KanAuto上中文正常，使用UTF-8格式查看和编辑lua
+######Github Desktop和网页上显示Raw会有显示问题，但是直接编辑没有。KanAuto用的编码真奇怪，还联系不上作者……
