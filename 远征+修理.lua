@@ -171,7 +171,7 @@ function tryQuest()
 	return questFound
 end
 
-Kan.EasyConquestInit(60*10,60*11)
+Kan.EasyConquestInit(60*5,60*7)
 Kan.EasyConquestRun()
  
 while true do
