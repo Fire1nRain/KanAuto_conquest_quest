@@ -173,9 +173,11 @@ end
 
 Kan.EasyConquestInit(60*10,60*11)
 Kan.EasyConquestRun()
+ 
 while true do
 	Kan.RepairEx(4,0,1+2+4+8)
-	if checkQuest == true then
+	--如果标记为接受任务，且时间在JST5点更新任务后，则每次循环检查任务
+	if checkQuest == true and Base.CheckHour("[6,18]") == true then
 		hasQuest = tryQuest()
 	end
 	Kan.EasyConquestWaitNextRun()
