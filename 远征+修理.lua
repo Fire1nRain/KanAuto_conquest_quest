@@ -24,15 +24,20 @@ end
 
 function waitReward()
 	ret = Base.WaitColor("[[375,399,10460707],[400,402,9211167],[435,403,10460707]]","奖励界面",500,30000,100)
-	if ret == true then
+	while ret == true then
 		Base.Click(399,400)
+		ret = Base.WaitColor("[[375,399,10460707],[400,402,9211167],[435,403,10460707]]","奖励界面",500,30000,100)
 	end
 	return ret
 end
 
 function IsForward()
+	
+	a = Base.IsColor(298,463,6337727)
+	b = Base.IsColor(304,462,9022556)
+	c = Base.IsColor(291,462,8956763)
 
-	if Base.ImageHashContrast(Base.ImageHash(289,453,20,20),"FFFFE9C101C1E9FF") < 10 then
+	if a == true and b == true and c == true then
 		return true
 	else
 		return false
