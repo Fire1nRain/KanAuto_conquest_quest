@@ -1,6 +1,6 @@
 --设定参数
-k2_conquest = C.北方鼠輸送作戦_ID21
-k3_conquest = C.海上護衛任務_ID5
+k2_conquest = C.東京急行_ID37
+k3_conquest = C.防空射撃演習_ID6
 
 --等待次数
 waitCount = 0
@@ -31,6 +31,7 @@ function waitReward()
 end
 
 function IsForward()
+
 	if Base.ImageHashContrast(Base.ImageHash(289,453,20,20),"FFFFE9C101C1E9FF") < 10 then
 		return true
 	else
@@ -143,6 +144,7 @@ function tryQuest()
 				end
 				--只要任务被找到，就跳出循环
 				if questStat >= 0 then
+					Win.Print("返回母港")
 					Kan.GoHome()
 					break
 				end
@@ -159,7 +161,12 @@ function tryQuest()
 					break
 				end
 				
-				if IsForward() == false then break end
+				Base.Sleep(500)
+				
+				if IsForward() == false then
+					Win.Print("到达首页")
+					break
+				end
 			end
 		else
 			Win.Print("载入超时！on last page")
@@ -177,8 +184,9 @@ Kan.EasyConquestRun()
 while true do
 	Kan.RepairEx(4,0,1+2+4+8)
 	--如果标记为接受任务，且时间在JST5点更新任务后，则每次循环检查任务
-	if checkQuest == true and Base.CheckHour("[6,18]") == true then
+	if checkQuest == true and Base.CheckHour("[[6,18]]") == true then
 		hasQuest = tryQuest()
+		Kan.WaitHomeEx(500.10000)
 	end
 	Kan.EasyConquestWaitNextRun()
 end
